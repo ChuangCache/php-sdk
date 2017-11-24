@@ -6,8 +6,6 @@ use \chuangcache\sdk\utils\RequestUtil;
 
 class Token
 {
-    const GRANTTYPE = 'client_credentials';
-
     private static $token;
     private static $expire;
 
