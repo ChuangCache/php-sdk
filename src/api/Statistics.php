@@ -27,7 +27,7 @@ class Statistics extends BaseAPI
     ];
 
     private function getdata($type, $domain = null, $startTime, $endTime, $resulttype = 0) {
-        if (empty($type) || in_array($type, self::$DATA_TYPE) || empty($startTime) || empty($endTime) || $startTime > $endTime) {
+        if (empty($type) || !in_array($type, self::$DATA_TYPE) || empty($startTime) || empty($endTime) || $startTime > $endTime) {
             return null;
         }
         if (empty(self::$ACCESS_TOKEN)) {
