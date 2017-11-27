@@ -2,9 +2,7 @@
 
 namespace chuangcache\sdk\api;
 
-use \chuangcache\sdk\utils\RequestUtil;
-
-class Token
+class Token extends BaseAPI
 {
     private static $token;
     private static $expire;
@@ -20,9 +18,9 @@ class Token
         $configJson = file_get_contents(getcwd() . '/config.json');
         $send_data = json_decode($configJson, JSON_UNESCAPED_SLASHES);
 
-        $url = RequestUtil::$API_URL . '/OAuth/authorize';
+        $url = self::$API_URL . '/OAuth/authorize';
 
-        $return = RequestUtil::httpPost($url, $send_data);
+        $return = self::httpPost($url, $send_data);
         if ($return['status'] == 1 && !empty($return['data'])) {
             self::$token = $return['data']['access_token'];
             self::$expire = $return['data']['expires_in'];

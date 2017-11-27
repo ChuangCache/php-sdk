@@ -1,10 +1,10 @@
 <?php
 
-namespace chuangcache\sdk\utils;
+namespace chuangcache\sdk\api;
 
-class RequestUtil
+abstract class BaseAPI
 {
-    public static $API_URL = 'https://api.chuangcache.com';
+    protected static $API_URL = 'https://api.chuangcache.com';
 
     public static function httpPost($url, $data) {
         $data = is_array($data) ? json_encode($data) : $data;
