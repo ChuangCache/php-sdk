@@ -5,6 +5,7 @@ namespace chuangcache\sdk\api;
 abstract class BaseAPI
 {
     protected static $API_URL = 'https://api.chuangcache.com';
+    protected static $ACCESS_TOKEN;
 
     public static function httpPost($url, $data) {
         $data = is_array($data) ? json_encode($data) : $data;
